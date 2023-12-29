@@ -36,3 +36,24 @@ let paddle2 = {
     y : gameWidth - 100
 }
 
+window.addEventListener("Keydown", changeDirection);
+resetBtn.addEventListener("click", resetGame);
+
+gameStart();
+drawPaddles();
+
+function ganmStart(){};
+function nextTick(){};
+function clearBoard(){};
+function drawPaddles(){
+    ctx.strokeStyle = paddleBorder;
+    ctx.fillStyle = paddle1Color;
+    ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+};
+function createBall(){};
+function moveBall(){};
+function drawBall(){};
+function checkCollision(){};
+function checkDirection(){};
+function updateScore(){};
+function resetGame(){};
