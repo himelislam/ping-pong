@@ -41,11 +41,13 @@ resetBtn.addEventListener("click", resetGame);
 
 gameStart();
 drawPaddles();
+changeDirection();
 
 function gameStart(){
     createBall();
     nextTick();
 };
+
 function nextTick(){
     intervalID = setTimeout(() => {
         clearBoard();
@@ -56,7 +58,11 @@ function nextTick(){
         nextTick();
     },10)
 };
-function clearBoard(){};
+
+function clearBoard(){
+    ctx.fillStyle = boardBackground;
+    ctx.fillRect(0,0,gameWidth, gameHeight);
+};
 function drawPaddles(){
     ctx.strokeStyle = paddleBorder;
     
@@ -67,12 +73,14 @@ function drawPaddles(){
     ctx.fillStyle = paddle2Color;
     ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
     ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
-    console.log("Hello");
 };
 function createBall(){};
 function moveBall(){};
 function drawBall(){};
 function checkCollision(){};
-function changeDirection(){};
+function changeDirection(event){
+    const keyPressed = event.which;
+    console.log(keyPressed);
+};
 function updateScore(){};
 function resetGame(){};
