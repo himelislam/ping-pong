@@ -1,5 +1,5 @@
 const gameContainer = document.querySelector("#gameContainer");
-const gameBoard = document.querySelector("#gameBoard");
+const gameBoard = document.getElementById("gameBoard");
 const ctx = gameBoard.getContext("2d");
 const resetBtn = document.querySelector("#resetBtn");
 const gameWidth = gameBoard.width;
@@ -42,14 +42,32 @@ resetBtn.addEventListener("click", resetGame);
 gameStart();
 drawPaddles();
 
-function ganmStart(){};
-function nextTick(){};
+function gameStart(){
+    createBall();
+    nextTick();
+};
+function nextTick(){
+    intervalID = setTimeout(() => {
+        clearBoard();
+        drawPaddles();
+        moveBall();
+        drawBall(ballX, ballY);
+        checkCollision();
+        nextTick();
+    },10)
+};
 function clearBoard(){};
 function drawPaddles(){
     ctx.strokeStyle = paddleBorder;
+    
     ctx.fillStyle = paddle1Color;
     ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
     ctx.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+    
+    ctx.fillStyle = paddle2Color;
+    ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+    ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+    console.log("Hello");
 };
 function createBall(){};
 function moveBall(){};
