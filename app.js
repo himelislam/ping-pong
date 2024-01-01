@@ -18,7 +18,7 @@ let ballSpeed = 1;
 let ballX = gameWidth / 2;
 let ballY = gameHeight / 2;
 let ballXDirection = 0;
-let ballyDirection = 0;
+let ballYDirection = 0;
 let player1Score = 0;
 let player2Score = 0;
 
@@ -87,10 +87,24 @@ function createBall() {
     else{
         ballXDirection = -1;
     }
+
+    if(Math.round(Math.random()) == 1){
+        ballYDirection = 1;
+    }
+    else{
+        ballYDirection = -1;
+    }
+
+    ballX = gameWidth / 2;
+    ballY = gameHeight / 2;
+    drawBall(ballX,ballY);
 };
 
 
-function moveBall() { };
+function moveBall() {
+    ballX += (ballSpeed * ballXDirection);
+    ballY += (ballSpeed * ballYDirection);
+};
 
 
 function drawBall(ballX, ballY) {
@@ -104,7 +118,27 @@ function drawBall(ballX, ballY) {
 };
 
 
-function checkCollision() { };
+function checkCollision() {
+    if(ballY <= 0 + ballRadius){
+        ballYDirection *= -1;
+    }
+    if(ballY >= gameHeight - ballRadius){
+        ballYDirection *= -1;
+    }
+
+    if(ballX <= 0){
+        player2Score+=1;
+        updateScore();
+        createBall();
+        return;
+    }
+    if(ballX >= gameWidth){
+        player1Score+=1;
+        updateScore();
+        createBall();
+        return;
+    }
+};
 
 
 function changeDirection(event) {
