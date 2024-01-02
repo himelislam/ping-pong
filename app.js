@@ -138,6 +138,13 @@ function checkCollision() {
         createBall();
         return;
     }
+
+    if(ballX <= (paddle1.x + paddle1.width + ballRadius)){
+        if(ballY > paddle1.y && ballY < paddle1.y + paddle1.height){
+            ballXDirection *= -1;
+            ballSpeed += 1;
+        }
+    }
 };
 
 
