@@ -4,12 +4,12 @@ const ctx = gameBoard.getContext("2d");
 const resetBtn = document.querySelector("#resetBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "forestgreen";
+const boardBackground = "blue";
 const paddle1Color = "lightblue";
 const paddle2Color = "red";
 const paddleBorder = "black";
 const ballColor = "yellow";
-const ballBorderColor = "black";
+const ballBorderColor = "red";
 const ballRadius = 12.5;
 const paddleSpeed = 50;
 
